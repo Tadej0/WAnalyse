@@ -1,6 +1,13 @@
+#Learning site
+This site is ment for inserting learnign material, including pictures and videos. 
+Short insight:
+- visual update
+- scrollspy
+- testing
+- bottom and top gradient
+- timing
 
-
-## Start Bootstrap]
+## Start Bootstrap
 
 [Simple Sidebar](http://startbootstrap.com/template-overviews/simple-sidebar/) is an off canvas sidebar navigation template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
 
