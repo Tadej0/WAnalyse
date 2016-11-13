@@ -1,5 +1,5 @@
-#Learning site
-current plans:
+#Gathering sub-site
+To-do:
 - visual update
 - scrollspy
 - testing
