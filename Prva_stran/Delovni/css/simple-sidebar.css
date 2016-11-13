@@ -6,6 +6,7 @@
 
  body {
     overflow-x: hidden;
+    position: relative; 
  }
 
 /* Toggle Styles */
@@ -85,6 +86,11 @@
     text-decoration: none;
 }
 
+#sidebar-nav .active a{
+  color:red;
+  font-size:30px;
+}
+
 .sidebar-nav > .sidebar-brand {
     height: 65px;
     font-size: 18px;
@@ -126,4 +132,12 @@
         position: relative;
         margin-right: 0;
     }
+}
+#component-that-spies {
+  /* Obligatory property */
+  position: relative;
+
+  /* These two are only needed if we apply the spy is other component than <body> (and this is the case). The height is arbitrary, as mine is just to show quickly how it works */
+  height: 100%;
+  overflow-y: scroll;
 }
