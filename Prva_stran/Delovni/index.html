@@ -1,278 +1,577 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>test</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/bootstrap.css" rel="stylesheet">
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  
+    <title>test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
 </head>
 <style>
+body{
+  scrollbar-base-color: #f2462e;
+  scrollbar-base-color: #f2462e;
+  scrollbar-3dlight-color: #f2462e;
+  scrollbar-highlight-color: #f2462e;
+  scrollbar-track-color: #EBEBEB;
+  scrollbar-arrow-color: black;
+  scrollbar-shadow-color: #f2462e;
+  scrollbar-dark-shadow-color: #f2462e;
+}
+::-webkit-scrollbar { width: 5px; height: 3px;}
+::-webkit-scrollbar-button {  background-color: white; }
+::-webkit-scrollbar-track {  background-color: black;}
+::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+::-webkit-scrollbar-thumb { height: 10px; background-color: black; border-radius: 0px;}
+::-webkit-scrollbar-corner { background-color: #999;}}
+::-webkit-resizer { background-color: black;}
 
-section {
-	margin-top: 40px;
-}
-section:first-of-type {
-	margin-top: 0;
-}
-.page-heading {
-	padding: 20px 0 40px;
-	text-align: center;
-}
+    section {
+        margin-top: 40px;
+    }
 
-.divider {
-	border-bottom: 1px solid #ccc;
-}
-#fake-footer {
-	height: 600px;
-	widith: 100%;
+    section:first-of-type {
+        margin-top: 0;
+    }
 
-}
-li a {
-	transition-duration: 0.5s;
-}
+    .page-heading {
+        padding: 20px 0 40px;
+        text-align: center;
+    }
 
-/* Helpers for top position on internal page links
+    .divider {
+        border-bottom: 1px solid #ccc;
+    }
+
+    #fake-footer {
+        height: 600px;
+        widith: 100%;
+    }
+
+    li a {
+        transition-duration: 0.5s;
+    }
+    /* Helpers for top position on internal page links
 ====================================================*/
-#topPos:before,
-h1:before { 
-  display: block; 
-  content: " "; 
-  margin-top: -80px; 
-  height: 80px; 
-  visibility: hidden; 
-}
-/* AFFIX STYLES
+
+    #topPos:before,
+    h1:before {
+        display: block;
+        content: " ";
+        margin-top: -80px;
+        height: 80px;
+        visibility: hidden;
+    }
+    /* AFFIX STYLES
 ====================================================*/
-.panel-affix {
-	min-width: 225px;
+
+    .panel-affix {
+        min-width: 225px;
+    }
+
+    .gradienttop {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 50%;
+        background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(137, 255, 241, 0) 50%);
+        /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(50%, rgba(137, 255, 241, 0)));
+        /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(137, 255, 241, 0) 50%);
+        /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(137, 255, 241, 0) 50%);
+        /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(137, 255, 241, 0) 50%);
+        /* IE10+ */
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(137, 255, 241, 0) 50%);
+        /* W3C */
+        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#0089fff1', GradientType=0);
+        /* IE6-9 */
+    }
+
+    .gradientbottom {
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 50%;
+        background: -moz-linear-gradient(top, rgba(137, 255, 241, 0) 0%, rgba(255, 255, 255, 1) 50%);
+        /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(137, 255, 241, 0)), color-stop(50%, rgba(255, 255, 255, 1)));
+        /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(137, 255, 241, 0) 0%, rgba(255, 255, 255, 1) 50%);
+        /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(137, 255, 241, 0) 0%, rgba(255, 255, 255, 1) 50%);
+        /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(137, 255, 241, 0) 0%, rgba(255, 255, 255, 1) 50%);
+        /* IE10+ */
+        background: linear-gradient(to bottom, rgba(137, 255, 241, 0) 0%, rgba(255, 255, 255, 1) 50%);
+        /* W3C */
+        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#0089fff1', endColorstr='#000000', GradientType=0);
+        /* IE6-9 */
+    }
+
+    progress {
+  /* Positioning */
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  /* Dimensions */
+  width: 102%;
+  height: .2em;
+
+  /* Reset the apperance */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+
+  /* Get rid of the default border in Firefox/Opera. */
+  border: none;
+
+  /* For Firefox/IE10+ */
+  background-color: transparent;
+
+  /* For IE10+, color of the progress bar */
+  color: #0ec6da;
 }
 
+progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+.flat::-webkit-progress-value {
+  background-color: #0ec6da;
+}
+
+.flat::-moz-progress-bar {
+  background-color: #0ec6da;
+}
+
+.single::-webkit-progress-value {
+  background-color: transparent;
+  background-image: -webkit-linear-gradient(left, transparent, #0ec6da);
+}
+
+.single::-moz-progress-bar {
+  background-color: transparent;
+  background-image: -moz-linear-gradient(left, transparent, #0ec6da);
+}
+
+.multiple::-webkit-progress-value {
+  background-image: -webkit-linear-gradient(-45deg,
+                               transparent 33%, rgba(0, 0, 0, .1) 33%,
+                               rgba(0,0, 0, .1) 66%, transparent 66%),
+                      -webkit-linear-gradient(left, green, red);
+}
+
+.multiple::-moz-progress-bar {
+  background-image: -moz-linear-gradient(-45deg,
+                               transparent 33%, rgba(0, 0, 0, .1) 33%,
+                               rgba(0,0, 0, .1) 66%, transparent 66%),
+                      -moz-linear-gradient(left, green, red);
+}
+
+.progress-container {
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: .25em;
+  display: block;
+}
+
+.progress-bar {
+  background-color: red;
+  width: 50%;
+  display: block;
+  height: inherit;
+}
 
 </style>
 
 <body data-spy="scroll" data-target="#myScrollspy">
 
-<!-- Main Content To Show Dynamic Affix -->
-<div class="container" name="toTop" id="topPos">
-	
-	<div class="row">
-		<div class="col-md-12">
-			<h1 class="page-heading">Lecture name</h1>
-		</div>
-	</div>
-		
-	<div class="row">
-				<div class="col-md-2 hidden-sm hidden-xs">
-			<div class="panel panel-default panel-affix" id="myScrollspy">
-				<!-- Default panel contents -->
-				<div class="panel-heading">
-					Navigation panel
-				</div>
-				<div class="panel-body">
-					<ul class="nav nav-pills nav-stacked">
-						<li class="active"><a href="#sectionOne"  data-offset="200">Section One</a></li>
-						<li><a href="#sectionTwo" data-offset="40">Section Two</a></li>
-						<li><a href="#sectionThree">Section Three</a></li>
-						<li><a href="#sectionFour">Section Four</a></li>
-						<li><a href="#sectionFive">Section Five</a></li>
-						<li><a href="#sectionSix">Section Six</a></li>
-						<li><a href="#sectionSeven">Section Seven</a></li>
-						<li><a href="#sectionEight">Section Eight</a></li>
-						<li><a href="#sectionNine">Section Nine</a></li>
-						<li><a href="#sectionTen">Section Ten</a></li>
-						<li role="presentation" class="divider"></li>
-						<li><a href="#toTop">Back To Top <span class="glyphicon glyphicon-hand-up"></span></a></li>
-					</ul>
-				</div>
-			</div>	
-		</div>
-		<!-- //Close Col -->
-		
-		<div class="col-md-10" >				
-					<section id="sectionOne">
-						<h1>Section One</h1>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</p>
+    <!-- Main Content To Show Dynamic Affix -->
+    <div class="container" name="toTop" id="topPos">
 
-						<p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-						
-						<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
-					</section>
+        <div class="row">
+            <div class="col-md-12" style="z-index: 1000;">
 
-					<section id="sectionTwo" data-offset="40">
-						<h1>Section Two</h1>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</p>
-						
-						<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+              <progress value="0" id="progressBar">
+                <div class="progress-container">
+                  <span class="progress-bar"></span>
+                </div>
+              </progress>
 
-						<p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-					</section>
+                <h1 class="page-heading">Lecture name</h1>
+            </div>
+        </div>
 
-					<section id="sectionThree">
-						<h1>Section Three</h1>
-						<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
-						
-						<p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+        <div class="row">
+            <div class="col-md-2 hidden-sm hidden-xs" style="z-index:1000">
+                <div class="panel panel-default panel-affix" id="myScrollspy">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">
+                        Navigation panel
+                    </div>
+                    <div class="panel-body">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a href="#sectionOne" data-offset="200">Section One</a></li>
+                            <li><a href="#sectionTwo" data-offset="40">Section Two</a></li>
+                            <li><a href="#sectionThree">Section Three</a></li>
+                            <li><a href="#sectionFour">Section Four</a></li>
+                            <li><a href="#sectionFive">Section Five</a></li>
+                            <li><a href="#sectionSix">Section Six</a></li>
+                            <li><a href="#sectionSeven">Section Seven</a></li>
+                            <li><a href="#sectionEight">Section Eight</a></li>
+                            <li><a href="#sectionNine">Section Nine</a></li>
+                            <li><a href="#sectionTen">Section Ten</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li><a href="#toTop">Back To Top <span class="glyphicon glyphicon-hand-up"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- //Close Col -->
 
-						<p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
-					</section>
-	
-					<section id="sectionFour">
-						<h1>Section Four</h1>
-						<p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+            <div class="col-md-10">
+                <div class="gradienttop">
+                </div>
 
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</p>
-						
-						<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
-					</section>
-					
-					<section id="sectionFive">	
-						<h1>Section Five</h1>
-						<p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-						
-						<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+                <section id="sectionOne">
+                    <h1>Section One</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero
+                        sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</p>
 
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</p>
-					</section>
-					
-					<section id="sectionSix">
-						<h1>Section Six</h1>
-						<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
-						
-						<p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
+                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
 
-						<p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-					</section>
-					
-					<section id="sectionSeven"> 
-						<h1>Section Seven</h1>
-						<p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-						
-						<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+                    <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
+                        vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+                </section>
 
-						<p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-					</section>
-					
-					<section id="sectionEight">
-						<h1>Section Eight</h1>
-						<p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+                <section id="sectionTwo" data-offset="40">
+                    <h1>Section Two</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero
+                        sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</p>
 
-						<p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
-						
-						<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
-					</section>
-					
-					<section id="sectionNine">
-						<h1>Section Nine</h1>
-						<p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-						
-						<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+                    <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
+                        vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
 
-						<p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-					</section>
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
+                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+                </section>
 
-					<section id="sectionTen">
-						<h1>Section Ten</h1>
-						<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
-						
-						<p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
+                <section id="sectionThree">
+                    <h1>Section Three</h1>
+                    <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
+                        vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
 
-						<p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-					</section>
-		</div>
-		<!-- //Close Col -->
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
+                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+
+                    <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia
+                        vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
+                </section>
+
+                <section id="sectionFour">
+                    <h1>Section Four</h1>
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
+                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero
+                        sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</p>
+
+                    <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
+                        vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+                </section>
+
+                <section id="sectionFive">
+                    <h1>Section Five</h1>
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
+                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+
+                    <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
+                        vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero
+                        sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</p>
+                </section>
+
+                <section id="sectionSix">
+                    <h1>Section Six</h1>
+                    <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
+                        vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+
+                    <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia
+                        vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
+
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
+                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+                </section>
+
+                <section id="sectionSeven">
+                    <h1>Section Seven</h1>
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
+                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+
+                    <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
+                        vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
+                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+
+                    <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
+                        vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
+                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+
+                    <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
+                        vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
+                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+
+                    <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
+                        vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
+                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+
+                    <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
+                        vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+
+
+                </section>
+
+                <section id="sectionEight">
+                    <h1>Section Eight</h1>
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
+                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+
+                    <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia
+                        vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
+
+                    <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
+                        vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+                </section>
+
+                <section id="sectionNine">
+                    <h1>Section Nine</h1>
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
+                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+
+                    <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
+                        vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
+                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+                </section>
+
+                <section id="sectionTen">
+                    <h1>Section Ten</h1>
+                    <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
+                        vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+
+                    <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia
+                        vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
+
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
+                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+                </section>
+
+                <div class="gradientbottom">
+                </div>
+            </div>
+            <!-- //Close Col -->
 
 
 
 
-	</div>
-</div>
+        </div>
+    </div>
 
-<div id="fake-footer"></div>
+    <div id="fake-footer"></div>
 </body>
 
 <script>
-//Navbar Box Shadow on Scroll 
-$(function(){
-    var navbar = $('.navbar');
-    $(window).scroll(function(){
-        if($(window).scrollTop() <= 40){
-       		navbar.css('box-shadow', 'none');
-        } else {
-          navbar.css('box-shadow', '0px 10px 20px rgba(0, 0, 0, 0.4)'); 
+    //Navbar Box Shadow on Scroll
+    $(function() {
+        var navbar = $('.navbar');
+        $(window).scroll(function() {
+            if ($(window).scrollTop() <= 40) {
+                navbar.css('box-shadow', 'none');
+            } else {
+                navbar.css('box-shadow', '0px 10px 20px rgba(0, 0, 0, 0.4)');
+            }
+        });
+    })
+
+
+    //Function from Bluthemes, lets you add li elemants to affix object without having to alter and data attributes set out by bootstrap
+    $(function() {
+
+        // name your elements here
+        var stickyElement = '.panel-affix', // the element you want to make sticky
+            bottomElement = '#fake-footer'; // the bottom element where you want the sticky element to stop (usually the footer)
+
+        // make sure the element exists on the page before trying to initalize
+        if ($(stickyElement).length) {
+            $(stickyElement).each(function() {
+
+                // let's save some messy code in clean variables
+                // when should we start affixing? (the amount of pixels to the top from the element)
+                var fromTop = $(this).offset().top,
+                    // where is the bottom of the element?
+                    fromBottom = $(document).height() - ($(this).offset().top + $(this).outerHeight()),
+                    // where should we stop? (the amount of pixels from the top where the bottom element is)
+                    // also add the outer height mismatch to the height of the element to account for padding and borders
+                    stopOn = $(document).height() - ($(bottomElement).offset().top) + ($(this).outerHeight() - $(this).height());
+
+                // if the element doesn't need to get sticky, then skip it so it won't mess up your layout
+                if ((fromBottom - stopOn) > 200) {
+                    // let's put a sticky width on the element and assign it to the top
+                    $(this).css('width', $(this).width()).css('top', 0).css('position', '');
+                    // assign the affix to the element
+                    $(this).affix({
+                        offset: {
+                            // make it stick where the top pixel of the element is
+                            top: fromTop - 80,
+                            // make it stop where the top pixel of the bottom element is
+                            bottom: stopOn
+                        }
+                        // when the affix get's called then make sure the position is the default (fixed) and it's at the top
+                    }).on('affix.bs.affix', function() {
+                        $(this).css('top', '80px').css('position', '');
+                    });
+                }
+                // trigger the scroll event so it always activates
+                $(window).trigger('scroll');
+            });
         }
-    });  
-})
 
+    });
 
-//Function from Bluthemes, lets you add li elemants to affix object without having to alter and data attributes set out by bootstrap
-$(function(){
-
-	// name your elements here
-	var stickyElement   = '.panel-affix',   // the element you want to make sticky
-		bottomElement   = '#fake-footer'; // the bottom element where you want the sticky element to stop (usually the footer) 
-
-	// make sure the element exists on the page before trying to initalize
-	if($( stickyElement ).length){
-		$( stickyElement ).each(function(){
-
-			// let's save some messy code in clean variables
-			// when should we start affixing? (the amount of pixels to the top from the element)
-			var fromTop = $( this ).offset().top, 
-				// where is the bottom of the element?
-				fromBottom = $( document ).height()-($( this ).offset().top + $( this ).outerHeight()),
-				// where should we stop? (the amount of pixels from the top where the bottom element is)
-				// also add the outer height mismatch to the height of the element to account for padding and borders
-				stopOn = $( document ).height()-( $( bottomElement ).offset().top)+($( this ).outerHeight() - $( this ).height()); 
-
-			// if the element doesn't need to get sticky, then skip it so it won't mess up your layout
-			if( (fromBottom-stopOn) > 200 ){
-				// let's put a sticky width on the element and assign it to the top
-				$( this ).css('width', $( this ).width()).css('top', 0).css('position', '');
-				// assign the affix to the element
-				$( this ).affix({
-					offset: { 
-						// make it stick where the top pixel of the element is
-						top: fromTop - 80,  
-						// make it stop where the top pixel of the bottom element is
-						bottom: stopOn
-					}
-				// when the affix get's called then make sure the position is the default (fixed) and it's at the top
-				}).on('affix.bs.affix', function(){ $( this ).css('top', '80px').css('position', ''); });
-			}
-			// trigger the scroll event so it always activates 
-			$( window ).trigger('scroll'); 
-		}); 
-	}
-
-});
-
-//Offset scrollspy height to highlight li elements at good window height
-$('body').scrollspy({
-	offset: 80
-});
-
-
-
+    //Offset scrollspy height to highlight li elements at good window height
+    $('body').scrollspy({
+        offset: 80
+    });
 </script>
 
 <!-- Smooth scroll-->
 <script>
-$('a[href*="#"]:not([href="#"])').click(function() {
-  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-    var target = $(this.hash);
-    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-    if (target.length) {
-      $('html, body').animate({
-        scrollTop: target.offset().top
-      }, 1000);
-      return false;
+    $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
+    });
+</script>
+
+
+<!--Progress Bar-->
+<script>
+$(document).ready(function(){
+
+    var getMax = function(){
+        return $(document).height() - $(window).height();
     }
-  }
+
+    var getValue = function(){
+        return $(window).scrollTop();
+    }
+
+    if('max' in document.createElement('progress')){
+        // Browser supports progress element
+        var progressBar = $('progress');
+
+        // Set the Max attr for the first time
+        progressBar.attr({ max: getMax() });
+
+        $(document).on('scroll', function(){
+            // On scroll only Value attr needs to be calculated
+            progressBar.attr({ value: getValue() });
+        });
+
+        $(window).resize(function(){
+            // On resize, both Max/Value attr needs to be calculated
+            progressBar.attr({ max: getMax(), value: getValue() });
+        });
+    }
+    else {
+        var progressBar = $('.progress-bar'),
+            max = getMax(),
+            value, width;
+
+        var getWidth = function(){
+            // Calculate width in percentage
+            value = getValue();
+            width = (value/max) * 100;
+            width = width + '%';
+            return width;
+        }
+
+        var setWidth = function(){
+            progressBar.css({ width: getWidth() });
+        }
+
+        $(document).on('scroll', setWidth);
+        $(window).on('resize', function(){
+            // Need to reset the Max attr
+            max = getMax();
+            setWidth();
+        });
+    }
+});
+
+$(document).ready(function(){
+
+  $('#flat').addClass("active");
+  $('#progressBar').addClass('flat');
+
+  $('#flat').on('click', function(){
+    $('#progressBar').removeClass().addClass('flat');
+    $('a').removeClass();
+    $(this).addClass('active');
+    $(this).preventDefault();
+  });
+
+  $('#single').on('click', function(){
+    $('#progressBar').removeClass().addClass('single');
+    $('a').removeClass();
+    $(this).addClass('active');
+    $(this).preventDefault();
+  });
+
+  $('#multiple').on('click', function(){
+    $('#progressBar').removeClass().addClass('multiple');
+    $('a').removeClass();
+    $(this).addClass('active');
+    $(this).preventDefault();
+  });
+
+  $('#semantic').on('click', function(){
+    $('#progressBar').removeClass().addClass('semantic');
+    $('a').removeClass();
+    $(this).addClass('active');
+    $(this).preventDefault();
+    alert('hello');
+  });
+
+
+
 });
 </script>
-</html>
 
+</html>
