@@ -93,10 +93,14 @@ body{
         /* W3C */
         filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#0089fff1', GradientType=0);
         /* IE6-9 */
+        /* Finally, i can click through the overlay */
+        pointer-events:none;
     }
 
     .gradientbottom {
         position: fixed;
+        /* Finally, i can click through the overlay */
+        pointer-events:none;
         bottom: 0px;
         left: 0px;
         width: 100%;
@@ -115,6 +119,8 @@ body{
         /* W3C */
         filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#0089fff1', endColorstr='#000000', GradientType=0);
         /* IE6-9 */
+        /* Finally, i can click through the overlay */
+        pointer-events:none;
     }
 
     progress {
@@ -236,7 +242,7 @@ progress::-webkit-progress-bar {
                             <li><a href="#sectionNine">Section Nine</a></li>
                             <li><a href="#sectionTen">Section Ten</a></li>
                             <li role="presentation" class="divider"></li>
-                            <li><a href="#toTop">Back To Top <span class="glyphicon glyphicon-hand-up"></span></a></li>
+                            <li><a href="#toTop">Back To Top <span class="glyphicon glyphicon-menu-up" style="padding-left:20px;vertical-align:middle"></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -285,6 +291,7 @@ progress::-webkit-progress-bar {
 
                     <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia
                         vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Modal Open</button>
                 </section>
 
                 <section id="sectionFour">
@@ -406,6 +413,24 @@ progress::-webkit-progress-bar {
 
 
         </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+            <p>This is a large modal.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="fake-footer"></div>

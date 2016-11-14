@@ -4107,7 +4107,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #fff;
-  background-color: #337ab7;
+  background-color: #5bc0de;
 }
 .nav-stacked > li {
   float: none;
@@ -5931,7 +5931,7 @@ button.close {
   bottom: 0;
   left: 0;
   z-index: 1040;
-  background-color: #000;
+  background-color: #31b0d5;
 }
 .modal-backdrop.fade {
   filter: alpha(opacity=0);
