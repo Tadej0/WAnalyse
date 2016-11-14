@@ -3,6 +3,7 @@
 Current site tasks:
 
 - [x] Page scrolling and anchor links
-- [ ] Visual update
-- [ ] "What's going on" on the site
+- [x] Visual update
+- [x] "What's going on" on the site
+- [ ] Tune the scrolling
 - [ ] Timig?
