@@ -23,8 +23,9 @@
     padding-left: 250px;
 }
 #top-menu li.active a {
-    border-top: 3px solid #333;
+    border-left: 10px solid #333;
     color: #333;
+	font-size: 20px; 
 }
 
 
