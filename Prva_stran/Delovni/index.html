@@ -264,7 +264,7 @@ progress::-webkit-progress-bar {
                     </div>
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked">
-                            <li class="active"><a href="#sectionOne" data-offset="200">Section One</a></li>
+                            <li><a href="#sectionOne" data-offset="200">Section One</a></li>
                             <li><a href="#sectionTwo" data-offset="40">Section Two</a></li>
                             <li><a href="#sectionThree">Section Three</a></li>
                             <li><a href="#sectionFour">Section Four</a></li>
@@ -681,5 +681,15 @@ progress::-webkit-progress-bar {
 
     });
 </script>
+
+
+	<!-- Fora JS file -->
+	<script>
+		$(document).ready(function(){
+      $('li').each(function(i){
+        if($(this).is('.active')) console.log(i);
+      });
+		});
+	</script>
 
 </html>
