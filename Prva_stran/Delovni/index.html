@@ -26,220 +26,10 @@
     </script>
 
 </head>
-<style>
-body {
-        scrollbar-base-color: #f2462e;
-        scrollbar-base-color: #f2462e;
-        scrollbar-3dlight-color: #f2462e;
-        scrollbar-highlight-color: #f2462e;
-        scrollbar-track-color: #EBEBEB;
-        scrollbar-arrow-color: black;
-        scrollbar-shadow-color: #f2462e;
-        scrollbar-dark-shadow-color: #f2462e;
-    }
 
-     ::-webkit-scrollbar {
-        width: 5px;
-        height: 3px;
-    }
-
-     ::-webkit-scrollbar-button {
-        background-color: white;
-    }
-
-     ::-webkit-scrollbar-track {
-        background-color: black;
-    }
-
-     ::-webkit-scrollbar-track-piece {
-        background-color: #ffffff;
-    }
-
-     ::-webkit-scrollbar-thumb {
-        height: 10px;
-        background-color: black;
-        border-radius: 0px;
-    }
-
-     ::-webkit-scrollbar-corner {
-        background-color: #999;
-    }
-}
-::-webkit-resizer {
-    background-color: black;
-}
-section {
-    margin-top: 50px;
-}
-section:first-of-type {
-    margin-top: 0;
-}
-.page-heading {
-    padding: 20px 0 40px;
-    text-align: center;
-}
-.divider {
-    border-bottom: 1px solid #ccc;
-}
-#fake-footer {
-    height: 600px;
-    width: 100%;
-}
-li a {
-    transition-duration: 0.5s;
-}
-
-/* Helpers for top position on internal page links
-====================================================*/
-#topPos:before,
-h1:before {
-    display: block;
-    content: " ";
-    margin-top: -80px;
-    height: 80px;
-    visibility: hidden;
-}
-
-/* AFFIX STYLES
-====================================================*/
-.panel-affix {
-    min-width: 225px;
-}
-.gradienttop {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 50%;
-    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(137, 255, 241, 0) 50%);
-    /* FF3.6+ */
-
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(50%, rgba(137, 255, 241, 0)));
-    /* Chrome,Safari4+ */
-
-    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(137, 255, 241, 0) 50%);
-    /* Chrome10+,Safari5.1+ */
-
-    background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(137, 255, 241, 0) 50%);
-    /* Opera 11.10+ */
-
-    background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(137, 255, 241, 0) 50%);
-    /* IE10+ */
-
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(137, 255, 241, 0) 50%);
-    /* W3C */
-
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#0089fff1', GradientType=0);
-    /* IE6-9 */
-    /* Finally, i can click through the overlay */
-
-    pointer-events: none;
-}
-.gradientbottom {
-    position: fixed;
-    /* Finally, i can click through the overlay */
-
-    pointer-events: none;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    height: 50%;
-    background: -moz-linear-gradient(top, rgba(137, 255, 241, 0) 0%, rgba(255, 255, 255, 1) 50%);
-    /* FF3.6+ */
-
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(137, 255, 241, 0)), color-stop(50%, rgba(255, 255, 255, 1)));
-    /* Chrome,Safari4+ */
-
-    background: -webkit-linear-gradient(top, rgba(137, 255, 241, 0) 0%, rgba(255, 255, 255, 1) 50%);
-    /* Chrome10+,Safari5.1+ */
-
-    background: -o-linear-gradient(top, rgba(137, 255, 241, 0) 0%, rgba(255, 255, 255, 1) 50%);
-    /* Opera 11.10+ */
-
-    background: -ms-linear-gradient(top, rgba(137, 255, 241, 0) 0%, rgba(255, 255, 255, 1) 50%);
-    /* IE10+ */
-
-    background: linear-gradient(to bottom, rgba(137, 255, 241, 0) 0%, rgba(255, 255, 255, 1) 50%);
-    /* W3C */
-
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#0089fff1', endColorstr='#000000', GradientType=0);
-    /* IE6-9 */
-    /* Finally, i can click through the overlay */
-
-    pointer-events: none;
-}
-progress {
-    /* Positioning */
-
-    position: fixed;
-    left: 0;
-    top: 0;
-    /* Dimensions */
-
-    width: 102%;
-    height: .2em;
-    /* Reset the apperance */
-
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    /* Get rid of the default border in Firefox/Opera. */
-
-    border: none;
-    /* For Firefox/IE10+ */
-
-    background-color: transparent;
-    /* For IE10+, color of the progress bar */
-
-    color: #0ec6da;
-}
-progress::-webkit-progress-bar {
-    background-color: transparent;
-}
-.flat::-webkit-progress-value {
-    background-color: #0ec6da;
-}
-.flat::-moz-progress-bar {
-    background-color: #0ec6da;
-}
-.single::-webkit-progress-value {
-    background-color: transparent;
-    background-image: -webkit-linear-gradient(left, transparent, #0ec6da);
-}
-.single::-moz-progress-bar {
-    background-color: transparent;
-    background-image: -moz-linear-gradient(left, transparent, #0ec6da);
-}
-.multiple::-webkit-progress-value {
-    background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0, 0, 0, .1) 66%, transparent 66%), -webkit-linear-gradient(left, green, red);
-}
-.multiple::-moz-progress-bar {
-    background-image: -moz-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0, 0, 0, .1) 66%, transparent 66%), -moz-linear-gradient(left, green, red);
-}
-.progress-container {
-    width: 100%;
-    background-color: transparent;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: .25em;
-    display: block;
-}
-.progress-bar {
-    background-color: red;
-    width: 50%;
-    display: block;
-    height: inherit;
-}
-.customblock {
-    display: block;
-    height: 20em;
-}
-</style>
 
 <body data-spy="scroll" data-target="#myScrollspy">
 
-    <!-- Main Content To Show Dynamic Affix -->
     <div class="container" name="toTop" id="topPos">
 
         <div class="row">
@@ -250,7 +40,6 @@ progress::-webkit-progress-bar {
                   <span class="progress-bar"></span>
                 </div>
               </progress>
-
                 <h1 class="page-heading">Lecture name</h1>
             </div>
         </div>
@@ -465,15 +254,13 @@ progress::-webkit-progress-bar {
 
                         </div>
                     </div>
+                    <!-- End Modal -->
                 </section>
 
                 <div class="gradientbottom">
                 </div>
             </div>
             <!-- //Close Col -->
-
-
-
 
         </div>
     </div>
@@ -495,7 +282,7 @@ progress::-webkit-progress-bar {
             </div>
         </div>
     </div>
-
+  <!-- End Modal -->
     <div id="fake-footer"></div>
 </body>
 
