@@ -583,12 +583,13 @@ progress::-webkit-progress-bar {
 </script>
 
 <script>
+//Refresh rate of the "Where the hell am i" function
 $(function(){
 setInterval(oneSecondFunction, 1000);
 });
 
 function oneSecondFunction() {
-console.log("Clicking on navigation menu");
+console.log("Where am I?!");
 $('li').each(function(i) {
     if ($(this).is('.active')) console.log(i);
 });
