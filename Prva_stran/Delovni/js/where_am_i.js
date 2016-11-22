@@ -1,7 +1,7 @@
  $(document).ready(function() {    
 		//Refresh rate of the "Where the hell am i" function
 		$(function(){
-		setInterval(oneSecondFunction, 1000);
+		setInterval(oneSecondFunction, 1);
 		});
 
 		function oneSecondFunction() {

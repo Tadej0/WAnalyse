@@ -225,7 +225,6 @@ if (typeof jQuery === 'undefined') {
   Button.prototype.toggle = function () {
     var changed = true
     var $parent = this.$element.closest('[data-toggle="buttons"]')
-
     if ($parent.length) {
       var $input = this.$element.find('input')
       if ($input.prop('type') == 'radio') {
@@ -1989,8 +1988,10 @@ if (typeof jQuery === 'undefined') {
 
   ScrollSpy.prototype.activate = function (target) {
     this.activeTarget = target
-
-    this.clear()
+	//Tadej, look here :)
+	console.log("works...");
+    
+	this.clear()
 
     var selector = this.selector +
       '[data-target="' + target + '"],' +
