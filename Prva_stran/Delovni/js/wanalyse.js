@@ -42,8 +42,6 @@ function wanalyse_main() {
         if (current_section > before_section) console.log("Going down");
         else if (current_section < before_section) console.log("Going up");
 
-
-
         time_spent_on_section = calculate_time_difference();
 
         console.log("Time spent on section: ", time_spent_on_section);
@@ -52,7 +50,7 @@ function wanalyse_main() {
         if (time_spent_on_section < 4) {
             console.log("Dont't bother, right?");
         } else {
-            console.log("Wow, youre interested");
+            console.log("Wow, you're interested");
         }
         before_section = current_section;
         minutes = time.getMinutes();
