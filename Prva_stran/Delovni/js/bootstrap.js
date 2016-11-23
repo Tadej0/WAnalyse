@@ -1987,10 +1987,11 @@ if (typeof jQuery === 'undefined') {
   }
 
   ScrollSpy.prototype.activate = function (target) {
-    this.activeTarget = target
-	//Tadej, look here :)
-	console.log("works...");
-    
+  //Tadej, look here :)
+  wanalyse_main();
+
+
+  this.activeTarget = target
 	this.clear()
 
     var selector = this.selector +
