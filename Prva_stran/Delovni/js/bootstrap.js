@@ -1987,12 +1987,11 @@ if (typeof jQuery === 'undefined') {
   }
 
   ScrollSpy.prototype.activate = function (target) {
-  //Tadej, look here :)
-  wanalyse_main();
-
-
   this.activeTarget = target
+  //Tadej, look here :)
+
 	this.clear()
+
 
     var selector = this.selector +
       '[data-target="' + target + '"],' +
@@ -2009,6 +2008,8 @@ if (typeof jQuery === 'undefined') {
     }
 
     active.trigger('activate.bs.scrollspy')
+    wanalyse_main();
+
   }
 
   ScrollSpy.prototype.clear = function () {
