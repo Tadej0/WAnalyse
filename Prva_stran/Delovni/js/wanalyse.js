@@ -6,6 +6,11 @@ var time;
 var minutes;
 var seconds;
 
+// How many sections are there???
+var number = $("#sections li").length
+console.log(number);
+
+
 
 function calculate_time_difference() {
     how_many_minutes = time.getMinutes() - minutes;
