@@ -17,6 +17,7 @@ window.addEventListener('DOMContentLoaded', function(e) {
     // Because that is how big the array has to be
     // The array includes information about the events happening in the individual sections
     var sectionArray = new Array(numberOfSections);
+    // Variables that are to be gathered:
     for (i = 0; i < numberOfSections  ; i++){
       console.log(i);
     }
