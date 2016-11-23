@@ -39,7 +39,7 @@ function wanalyse_main() {
     } else {
         current_section = tmp;
 
-        if (current_section > before_section) console.log("Goind down");
+        if (current_section > before_section) console.log("Going down");
         else if (current_section < before_section) console.log("Going up");
 
 
