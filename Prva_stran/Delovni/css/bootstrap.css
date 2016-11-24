@@ -1859,7 +1859,6 @@ pre code {
 
     .col-md-10 {
         width: 83.33333333%;
-        padding: 43px 280px 18px 130px;
     }
 
     .col-md-9 {
@@ -6042,44 +6041,38 @@ button.close {
 }
 
 /*# sourceMappingURL=bootstrap.css.map */
-
 body {
-        scrollbar-base-color: #f2462e;
-        scrollbar-base-color: #f2462e;
-        scrollbar-3dlight-color: #f2462e;
-        scrollbar-highlight-color: #f2462e;
-        scrollbar-track-color: #EBEBEB;
-        scrollbar-arrow-color: black;
-        scrollbar-shadow-color: #f2462e;
-        scrollbar-dark-shadow-color: #f2462e;
-    }
+    scrollbar-base-color: #f2462e;
+    scrollbar-base-color: #f2462e;
+    scrollbar-3dlight-color: #f2462e;
+    scrollbar-highlight-color: #f2462e;
+    scrollbar-track-color: #EBEBEB;
+    scrollbar-arrow-color: black;
+    scrollbar-shadow-color: #f2462e;
+    scrollbar-dark-shadow-color: #f2462e;
+}
+ ::-webkit-scrollbar {
+    width: 5px;
+    height: 3px;
+}
+ ::-webkit-scrollbar-button {
+    background-color: white;
+}
+ ::-webkit-scrollbar-track {
+    background-color: black;
+}
+ ::-webkit-scrollbar-track-piece {
+    background-color: #ffffff;
+}
+ ::-webkit-scrollbar-thumb {
+    height: 10px;
+    background-color: black;
+    border-radius: 0px;
+}
+ ::-webkit-scrollbar-corner {
+    background-color: #999;
+}
 
-     ::-webkit-scrollbar {
-        width: 5px;
-        height: 3px;
-    }
-
-     ::-webkit-scrollbar-button {
-        background-color: white;
-    }
-
-     ::-webkit-scrollbar-track {
-        background-color: black;
-    }
-
-     ::-webkit-scrollbar-track-piece {
-        background-color: #ffffff;
-    }
-
-     ::-webkit-scrollbar-thumb {
-        height: 10px;
-        background-color: black;
-        border-radius: 0px;
-    }
-
-     ::-webkit-scrollbar-corner {
-        background-color: #999;
-    }
 }
 ::-webkit-resizer {
     background-color: black;
@@ -6107,8 +6100,7 @@ li a {
 
 /* Helpers for top position on internal page links
 ====================================================*/
-#topPos:before,
-h1:before {
+#topPos:before, h1:before {
     display: block;
     content: " ";
     margin-top: -80px;
@@ -6129,32 +6121,24 @@ h1:before {
     height: 50%;
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(137, 255, 241, 0) 50%);
     /* FF3.6+ */
-
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(50%, rgba(137, 255, 241, 0)));
     /* Chrome,Safari4+ */
-
     background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(137, 255, 241, 0) 50%);
     /* Chrome10+,Safari5.1+ */
-
     background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(137, 255, 241, 0) 50%);
     /* Opera 11.10+ */
-
     background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(137, 255, 241, 0) 50%);
     /* IE10+ */
-
     background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(137, 255, 241, 0) 50%);
     /* W3C */
-
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#0089fff1', GradientType=0);
     /* IE6-9 */
     /* Finally, i can click through the overlay */
-
     pointer-events: none;
 }
 .gradientbottom {
     position: fixed;
     /* Finally, i can click through the overlay */
-
     pointer-events: none;
     bottom: 0px;
     left: 0px;
@@ -6162,51 +6146,38 @@ h1:before {
     height: 50%;
     background: -moz-linear-gradient(top, rgba(137, 255, 241, 0) 0%, rgba(255, 255, 255, 1) 50%);
     /* FF3.6+ */
-
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(137, 255, 241, 0)), color-stop(50%, rgba(255, 255, 255, 1)));
     /* Chrome,Safari4+ */
-
     background: -webkit-linear-gradient(top, rgba(137, 255, 241, 0) 0%, rgba(255, 255, 255, 1) 50%);
     /* Chrome10+,Safari5.1+ */
-
     background: -o-linear-gradient(top, rgba(137, 255, 241, 0) 0%, rgba(255, 255, 255, 1) 50%);
     /* Opera 11.10+ */
-
     background: -ms-linear-gradient(top, rgba(137, 255, 241, 0) 0%, rgba(255, 255, 255, 1) 50%);
     /* IE10+ */
-
     background: linear-gradient(to bottom, rgba(137, 255, 241, 0) 0%, rgba(255, 255, 255, 1) 50%);
     /* W3C */
-
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#0089fff1', endColorstr='#000000', GradientType=0);
     /* IE6-9 */
     /* Finally, i can click through the overlay */
-
     pointer-events: none;
 }
 progress {
     /* Positioning */
-
     position: fixed;
     left: 0;
     top: 0;
     /* Dimensions */
-
     width: 102%;
     height: .2em;
     /* Reset the apperance */
-
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     /* Get rid of the default border in Firefox/Opera. */
-
     border: none;
     /* For Firefox/IE10+ */
-
     background-color: transparent;
     /* For IE10+, color of the progress bar */
-
     color: #0ec6da;
 }
 progress::-webkit-progress-bar {
@@ -6250,4 +6221,26 @@ progress::-webkit-progress-bar {
 .customblock {
     display: block;
     height: 20em;
+}
+
+@media screen and (min-width: 200px) {
+    .col-md-10 {
+        padding: 43px 60px 18px 60px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+  .col-md-10 {
+    padding: 43px 60px 18px 120px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .col-md-10 {
+    padding: 43px 215px 38px 140px;
+  }
+}
+@media screen and (min-width: 1500px) {
+    .col-md-10 {
+        padding: 43px 280px 18px 130px;
+    }
 }

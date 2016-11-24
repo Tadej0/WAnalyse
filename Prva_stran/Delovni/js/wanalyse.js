@@ -7,6 +7,7 @@ var minutes;
 var seconds;
 var miliseconds;
 var numberOfSections;
+var sectionArray;
 
 // How many sections are there???
 window.addEventListener('DOMContentLoaded', function(e) {
@@ -16,12 +17,20 @@ window.addEventListener('DOMContentLoaded', function(e) {
     console.log("Number of sections:", numberOfSections );
     // Because that is how big the array has to be
     // The array includes information about the events happening in the individual sections
-    var sectionArray = new Array(numberOfSections);
-    // Variables that are to be gathered:
+    sectionArray = new Array(numberOfSections);
+	
+	/*
+		Variables that are to be gathered:
+		timeSpentHere  		->	time spent looking at this section
+		sectionVisited 		->	number of times this section has been viewed
+		sectionPassed		->	number of times this section was just passed by [passing by defined by minimal time required to count as a visit]
+		clickedDirectliHere ->	number of times this section has been clicked directly in the menu, NO scrolling
+	*/
+	
     for (i = 0; i < numberOfSections  ; i++){
       console.log(i);
+	  sectionArray[i]={timeSpentHere:0, sectionVisited:0, sectionPassed:0, clickedDirectliHere:0}
     }
-    console.log("velikost tabele:", sectionArray.length);
 } );
 
 
@@ -54,7 +63,7 @@ function wanalyse_main() {
     });
 
     //if it runs the first time something has to change
-
+	
     console.log("Section: ", tmp);
     time = new Date();
 
@@ -75,10 +84,11 @@ function wanalyse_main() {
         console.log("Time spent on section: ", time_spent_on_section);
 
         //if the user is less then 2 seconds on an individual section it is not counted as a "section view" cuz he just passes by
+		
         if (time_spent_on_section < 2) {
             console.log("Dont't bother, right?");
         } else {
-            console.log("Wow, you're interested");
+            console.log("Wow, you're actually interested");
         }
         before_section = current_section;
         minutes = time.getMinutes();
