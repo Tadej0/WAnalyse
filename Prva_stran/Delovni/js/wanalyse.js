@@ -1,3 +1,4 @@
+var has_reached_bottom = false;
 var first_time = true;
 var before_section;
 var current_section;
@@ -6,8 +7,23 @@ var time;
 var minutes;
 var seconds;
 var miliseconds;
+// Number of sections
 var numberOfSections;
+// Information about individual sections
 var sectionArray;
+
+var time_on_load, time_on_bottom_site, time_on_leaving;
+
+var body, html;
+var height;
+
+
+window.addEventListener("load", function() {
+    time = new Date();
+    time_on_load = {"minutes" : time.getMinutes(), "seconds": time.getSeconds(), "miliseconds": time.getMilliseconds()};
+  }
+);
+
 
 // How many sections are there???
 window.addEventListener('DOMContentLoaded', function(e) {
@@ -34,6 +50,23 @@ window.addEventListener('DOMContentLoaded', function(e) {
 } );
 
 
+// Every n MILISECONDS I check where you are ;
+window.setInterval(function(){
+  console.log("<--  500 milisecond interval  -->");
+      body = document.body;
+      html = document.documentElement;
+      height = Math.max( body.scrollHeight, body.offsetHeight,
+                             html.clientHeight, html.scrollHeight, html.offsetHeight );
+      if(has_reached_bottom == false){
+        if ((window.pageYOffset/height)>0.9){
+          has_reached_bottom = true;
+          time = new Date();
+          console.log("Na dnu!!!", window.pageYOffset/height);
+          time_on_bottom_site = {"minutes" : time.getMinutes(), "seconds": time.getSeconds(), "miliseconds": time.getMilliseconds()};
+        }
+      }
+}, 500);
+
 
 function calculate_time_difference() {
     how_many_minutes = time.getMinutes() - minutes;
@@ -56,7 +89,7 @@ function calculate_time_difference() {
         how_many_miliseconds = 1000 - Math.abs(how_many_miliseconds);
     }
 
-
+    // TU SEM
     return ("how many minutes and seconds:",( how_many_minutes + (how_many_seconds/10) + (how_many_miliseconds/1000) ) );
 }
 
