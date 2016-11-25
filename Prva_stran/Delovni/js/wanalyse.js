@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', function(e) {
     // Because that is how big the array has to be
     // The array includes information about the events happening in the individual sections
     sectionArray = new Array(numberOfSections);
-	
+
 	/*
 		Variables that are to be gathered:
 		timeSpentHere  		->	time spent looking at this section
@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', function(e) {
 		sectionPassed		->	number of times this section was just passed by [passing by defined by minimal time required to count as a visit]
 		clickedDirectliHere ->	number of times this section has been clicked directly in the menu, NO scrolling
 	*/
-	
+
     for (i = 0; i < numberOfSections  ; i++){
       console.log(i);
 	  sectionArray[i]={timeSpentHere:0, sectionVisited:0, sectionPassed:0, clickedDirectliHere:0}
@@ -40,6 +40,11 @@ function calculate_time_difference() {
     how_many_seconds = time.getSeconds() - seconds;
     how_many_miliseconds = time.getMilliseconds() - miliseconds;
 
+    console.log("milisekunde:",time.getMilliseconds());
+    console.log("sekunde:",time.getSeconds());
+    console.log("minute:",time.getMinutes());
+
+
     if (how_many_minutes < 0) {
         how_many_minutes = 60 - Math.abs(how_many_minutes);
     }
@@ -51,9 +56,13 @@ function calculate_time_difference() {
         how_many_miliseconds = 1000 - Math.abs(how_many_miliseconds);
     }
 
+
     return ("how many minutes and seconds:",( how_many_minutes + (how_many_seconds/10) + (how_many_miliseconds/1000) ) );
 }
 
+
+
+// MAIN Section
 
 function wanalyse_main() {
     $('li').each(function(i) {
@@ -63,7 +72,7 @@ function wanalyse_main() {
     });
 
     //if it runs the first time something has to change
-	
+
     console.log("Section: ", tmp);
     time = new Date();
 
@@ -84,12 +93,24 @@ function wanalyse_main() {
         console.log("Time spent on section: ", time_spent_on_section);
 
         //if the user is less then 2 seconds on an individual section it is not counted as a "section view" cuz he just passes by
-		
-        if (time_spent_on_section < 2) {
+
+        if (time_spent_on_section < 0.3) {
             console.log("Dont't bother, right?");
+            sectionArray[current_section].sectionPassed += 1;
+            console.log("Number of times passed by: ", sectionArray[current_section].sectionPassed );
+            console.log("Number of times actually visited: ", sectionArray[current_section].sectionVisited );
         } else {
             console.log("Wow, you're actually interested");
+            sectionArray[current_section].sectionVisited += 1;
+            console.log("Number of times passed by: ", sectionArray[current_section].sectionPassed );
+            console.log("Number of times actually visited: ", sectionArray[current_section].sectionVisited );
         }
+
+        //  Outoput test:
+        // for(i=0;i < numberOfSections; i++){
+        //     console.log(i," ", sectionArray[i].sectionVisited);
+        // }
+
         before_section = current_section;
         minutes = time.getMinutes();
         seconds = time.getSeconds();
