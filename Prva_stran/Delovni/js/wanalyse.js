@@ -22,12 +22,18 @@ function show_info() {
 
   //Show information to the modal
   document.getElementById("number_of_sections").innerHTML = numberOfSections;
+  document.getElementById("time_visited_site").innerHTML = time_on_load.minutes +"minute "+ time_on_load.seconds +"seconds "+time_on_load.miliseconds+"miliseconds";
+  document.getElementById("time_reached_bottom").innerHTML = time_on_bottom_site.minutes +"minute "+ time_on_bottom_site.seconds +"seconds "+time_on_bottom_site.miliseconds+"miliseconds";
 
-    for (i = 0, len = numberOfSections, text = " "; i < len; i++) {
-        text += sectionArray[i].sectionPassed + "<br>";
-    }
-      document.getElementById("demo").innerHTML = text;
+
+    for (i = 0, len = numberOfSections, text = ""; i < len; i++) {
+        text += "<hr style='padding-top:20px; '><h1 style='text-align:center;'>Section "+(i+1) +": </h1>" + "<br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times passed:"+ sectionArray[i].sectionPassed+"</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times viewed:"+sectionArray[i].sectionVisited+"</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Total time viewed:"+ sectionArray[i].timeSpentHere+"</p><br><p style='line-height:8px; margin:0px 0px 70px 0px ;'>Clicked directly: "+sectionArray[i].clickedDirectliHere+"</p>" ;
+      }
+      document.getElementById("demo1").innerHTML = text;
+
 }
+// +": </h1>" + "<br><p>Times passed: </p>" + sectionArray[i].sectionPassed +"</p><br><p>Times viewed: </p>"+sectionArray[i].sectionPassed+"br<p>Total time viewed: </p>"+ sectionArray[i].timeSpentHere+"br<p>clicked directly: </p>"+sectionArray[i].clickedDirectliHere;
+
 
 
 window.addEventListener("load", function() {
