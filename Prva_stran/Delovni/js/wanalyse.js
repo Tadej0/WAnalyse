@@ -20,16 +20,16 @@ var height;
 
 function show_info() {
 
-  //Show information to the modal
-  document.getElementById("number_of_sections").innerHTML = numberOfSections;
-  document.getElementById("time_visited_site").innerHTML = time_on_load.minutes +"minute "+ time_on_load.seconds +"seconds "+time_on_load.miliseconds+"miliseconds";
-  document.getElementById("time_reached_bottom").innerHTML = time_on_bottom_site.minutes +"minute "+ time_on_bottom_site.seconds +"seconds "+time_on_bottom_site.miliseconds+"miliseconds";
+    //Show information to the modal
+    document.getElementById("number_of_sections").innerHTML = numberOfSections;
+    document.getElementById("time_visited_site").innerHTML = time_on_load.minutes + "minute " + time_on_load.seconds + "seconds " + time_on_load.miliseconds + "miliseconds";
+    document.getElementById("time_reached_bottom").innerHTML = time_on_bottom_site.minutes + "minute " + time_on_bottom_site.seconds + "seconds " + time_on_bottom_site.miliseconds + "miliseconds";
 
 
     for (i = 0, len = numberOfSections, text = ""; i < len; i++) {
-        text += "<hr style='padding-top:20px; '><h1 style='text-align:center;'>Section "+(i+1) +": </h1>" + "<br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times passed:"+ sectionArray[i].sectionPassed+"</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times viewed:"+sectionArray[i].sectionVisited+"</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Total time viewed:"+ sectionArray[i].timeSpentHere+"</p><br><p style='line-height:8px; margin:0px 0px 70px 0px ;'>Clicked directly: "+sectionArray[i].clickedDirectliHere+"</p>" ;
-      }
-      document.getElementById("demo1").innerHTML = text;
+        text += "<hr style='padding-top:20px; '><h1 style='text-align:center;'>Section " + (i + 1) + ": </h1>" + "<br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times passed:" + sectionArray[i].sectionPassed + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times viewed:" + sectionArray[i].sectionVisited + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Total time viewed:" + sectionArray[i].timeSpentHere + "</p><br><p style='line-height:8px; margin:0px 0px 70px 0px ;'>Clicked directly: " + sectionArray[i].clickedDirectliHere + "</p>";
+    }
+    document.getElementById("demo1").innerHTML = text;
 
 }
 // +": </h1>" + "<br><p>Times passed: </p>" + sectionArray[i].sectionPassed +"</p><br><p>Times viewed: </p>"+sectionArray[i].sectionPassed+"br<p>Total time viewed: </p>"+ sectionArray[i].timeSpentHere+"br<p>clicked directly: </p>"+sectionArray[i].clickedDirectliHere;
@@ -63,10 +63,11 @@ window.addEventListener('DOMContentLoaded', function(e) {
     	clickedDirectliHere ->	number of times this section has been clicked directly in the menu, NO scrolling
     */
 
-    for (i = 0; i < numberOfSections; i++) {
+    for (i = 0; i <= numberOfSections; i++) {
         console.log(i);
         sectionArray[i] = {
             timeSpentHere: 0,
+            timeSpentPassign: 0,
             sectionVisited: 0,
             sectionPassed: 0,
             clickedDirectliHere: 0
@@ -112,7 +113,6 @@ function calculate_time_difference() {
     // console.log("SEKUNDE:", time.getSeconds() - seconds, "tmp_sekunde:", tmp_sekunde);
     // console.log("MINUTE:", (time.getMinutes()*60) - (minutes*60) );
 
-
     var time_diff = (time.getMinutes() * 60 + time.getSeconds() + time.getMilliseconds() / 1000) - (minutes * 60 + seconds + miliseconds / 1000);
     console.log("REAL DIFF: ", time_diff, "seconds");
 
@@ -124,6 +124,7 @@ function calculate_time_difference() {
 // MAIN Section
 
 function wanalyse_main() {
+  console.log("ACTIVATED!!!");
     $('li').each(function(i) {
         if ($(this).is('.active')) {
             tmp = i;
@@ -155,14 +156,12 @@ function wanalyse_main() {
 
         if (time_spent_on_section < 0.5) {
             console.log("Dont't bother, right?");
-            sectionArray[current_section].sectionPassed += 1;
-            console.log("Number of times passed by: ", sectionArray[current_section].sectionPassed);
-            console.log("Number of times actually visited: ", sectionArray[current_section].sectionVisited);
+            sectionArray[before_section].sectionPassed += 1;
+            sectionArray[before_section].timeSpentPassign += time_spent_on_section;
         } else {
             console.log("Wow, you're actually interested");
-            sectionArray[current_section].sectionVisited += 1;
-            console.log("Number of times passed by: ", sectionArray[current_section].sectionPassed);
-            console.log("Number of times actually visited: ", sectionArray[current_section].sectionVisited);
+            sectionArray[before_section].sectionVisited += 1;
+            sectionArray[before_section].timeSpentHere += time_spent_on_section;
         }
 
         //  Outoput test:
