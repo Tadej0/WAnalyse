@@ -25,6 +25,8 @@ var time_on_load, time_on_bottom_site, time_on_leaving;
 var body, html;
 var height;
 
+//Number of times the user went back up
+var goingBackUp  = 0;
 // temporaray time variable set at the beggining of modal opening
 var tmp_Time_begin;
 
@@ -71,8 +73,20 @@ function show_info() {
     document.getElementById("number_of_sections").innerHTML = numberOfSections;
     document.getElementById("number_of_images").innerHTML = numberOfImages;
     document.getElementById("number_of_videos").innerHTML = numberOfVideos;
+    document.getElementById("number_of_going_back_up").innerHTML = goingBackUp;
     document.getElementById("time_visited_site").innerHTML = time_on_load.minutes + "minute " + time_on_load.seconds + "seconds " + time_on_load.miliseconds + "miliseconds";
     document.getElementById("time_reached_bottom").innerHTML = time_on_bottom_site.minutes + "minute " + time_on_bottom_site.seconds + "seconds " + time_on_bottom_site.miliseconds + "miliseconds";
+
+
+    for (i = 0, len = numberOfImages, text = ""; i < len; i++) {
+        text += "<hr style='padding-top:20px; '><h1 style='text-align:center;'>Image " + (i + 1) + ": </h1>" + "<br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times viewed:" + imageArray[i].numberOfTimesClicked + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Time viewed:" + imageArray[i].timeSpentHere + "</p><br>";
+    }
+    document.getElementById("demo2").innerHTML = text;
+
+    for (i = 0, len = numberOfVideos, text = ""; i < len; i++) {
+        text += "<hr style='padding-top:20px; '><h1 style='text-align:center;'>Video " + (i + 1) + ": </h1>" + "<br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times viewed:" + videoArray[i].numberOfTimesClicked + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Time viewed:" + videoArray[i].timeSpentHere + "</p><br>";
+    }
+    document.getElementById("demo3").innerHTML = text;
 
 
     for (i = 0, len = numberOfSections, text = ""; i < len; i++) {
@@ -238,8 +252,10 @@ function wanalyse_main() {
     } else {
         current_section = tmp;
         if (current_section > before_section) console.log("Going down");
-        else if (current_section < before_section) console.log("Going up");
-
+        else if (current_section < before_section) {
+          goingBackUp += 1;
+          console.log("Going up");
+          }
         time_spent_on_section = calculate_time_difference();
 
         console.log("Time spent on section: ", time_spent_on_section);
