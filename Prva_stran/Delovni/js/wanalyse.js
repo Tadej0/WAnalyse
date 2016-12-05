@@ -19,6 +19,10 @@ var imageArray;
 var numberOfVideos;
 //Information about individual picture modals
 var videoArray;
+//number of exercises
+var numberOfExercises;
+//Information about individual exercise modals
+var exerciseArray;
 
 var time_on_load, time_on_bottom_site, time_on_leaving;
 
@@ -26,7 +30,7 @@ var body, html;
 var height;
 
 //Number of times the user went back up
-var goingBackUp  = 0;
+var goingBackUp = 0;
 // temporaray time variable set at the beggining of modal opening
 var tmp_Time_begin;
 
@@ -38,8 +42,12 @@ function sectionClicked(clicked) {
 function imgModalClicked(clicked) {
     imageArray[clicked].numberOfTimesClicked += 1;
 }
+
 function videoModalClicked(clicked) {
     videoArray[clicked].numberOfTimesClicked += 1;
+}
+function exerciseModalClicked(clicked) {
+    exerciseArray[clicked].numberOfTimesClicked += 1;
 }
 
 function startTime(type, number) {
@@ -62,6 +70,9 @@ function stopTime(type, number) {
         case 'video':
             videoArray[number].timeSpentHere += time_diff;
             break;
+        case 'exercise':
+            exerciseArray[number].timeSpentHere += time_diff;
+            break;
         default:
             console.log("ITS A NOTHING");
 
@@ -73,6 +84,7 @@ function show_info() {
     document.getElementById("number_of_sections").innerHTML = numberOfSections;
     document.getElementById("number_of_images").innerHTML = numberOfImages;
     document.getElementById("number_of_videos").innerHTML = numberOfVideos;
+    document.getElementById("number_of_exercise_modals").innerHTML = numberOfExercises;
     document.getElementById("number_of_going_back_up").innerHTML = goingBackUp;
     document.getElementById("time_visited_site").innerHTML = time_on_load.minutes + "minute " + time_on_load.seconds + "seconds " + time_on_load.miliseconds + "miliseconds";
     document.getElementById("time_reached_bottom").innerHTML = time_on_bottom_site.minutes + "minute " + time_on_bottom_site.seconds + "seconds " + time_on_bottom_site.miliseconds + "miliseconds";
@@ -87,7 +99,6 @@ function show_info() {
         text += "<hr style='padding-top:20px; '><h1 style='text-align:center;'>Video " + (i + 1) + ": </h1>" + "<br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times viewed:" + videoArray[i].numberOfTimesClicked + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Time viewed:" + videoArray[i].timeSpentHere + "</p><br>";
     }
     document.getElementById("demo3").innerHTML = text;
-
 
     for (i = 0, len = numberOfSections, text = ""; i < len; i++) {
         text += "<hr style='padding-top:20px; '><h1 style='text-align:center;'>Section " + (i + 1) + ": </h1>" + "<br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times passed:" + sectionArray[i].sectionPassed + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times viewed:" + sectionArray[i].sectionVisited + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Total time viewed:" + sectionArray[i].timeSpentHere + "</p><br><p style='line-height:8px; margin:0px 0px 70px 0px ;'>Clicked directly: " + sectionArray[i].clickedDirectliHere + "</p>";
@@ -143,6 +154,26 @@ window.addEventListener('DOMContentLoaded', function(e) {
     */
     for (i = 0; i < numberOfVideos; i++) {
         videoArray[i] = {
+            numberOfTimesClicked: 0,
+            timeSpentHere: 0
+        }
+    }
+
+});
+
+// How many modals with EXERCISES are there???
+window.addEventListener('DOMContentLoaded', function(e) {
+    var count = document.querySelectorAll("#exercise_Modal").length;
+    numberOfExercises = count;
+    exerciseArray = new Array(numberOfExercises);
+
+    /*
+      Varibles that are to be gathered:
+      numberOfTimesClicked -> how many times was the picture looked at?
+      timeSpentHere        -> how long was the picture looked at?
+    */
+    for (i = 0; i < numberOfExercises; i++) {
+        exerciseArray[i] = {
             numberOfTimesClicked: 0,
             timeSpentHere: 0
         }
@@ -206,19 +237,6 @@ window.setInterval(function() {
 
 
 function calculate_time_difference() {
-    // how_many_minutes = time.getMinutes() - minutes;
-    // how_many_seconds = time.getSeconds() - seconds;
-    // how_many_miliseconds = time.getMilliseconds() - miliseconds;
-    //
-    // console.log("MILISEKUNDE:", time.getMilliseconds()/1000);
-    // var tmp_sekunde = time.getSeconds() - seconds;
-    // if (tmp_sekunde<0){
-    //   tmp_sekunde = 60+tmp_sekunde;
-    // }
-    //
-    // console.log("SEKUNDE:", time.getSeconds() - seconds, "tmp_sekunde:", tmp_sekunde);
-    // console.log("MINUTE:", (time.getMinutes()*60) - (minutes*60) );
-
     var time_diff = (time.getMinutes() * 60 + time.getSeconds() + time.getMilliseconds() / 1000) - (minutes * 60 + seconds + miliseconds / 1000);
     console.log("REAL DIFF: ", time_diff, "seconds");
 
@@ -253,9 +271,9 @@ function wanalyse_main() {
         current_section = tmp;
         if (current_section > before_section) console.log("Going down");
         else if (current_section < before_section) {
-          goingBackUp += 1;
-          console.log("Going up");
-          }
+            goingBackUp += 1;
+            console.log("Going up");
+        }
         time_spent_on_section = calculate_time_difference();
 
         console.log("Time spent on section: ", time_spent_on_section);

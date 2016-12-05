@@ -92,6 +92,7 @@
 
                     <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
                         vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
+                    <button type="button" class="btn btn-info btn-lg" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#exerciseModal1" id="exercise_Modal" onclick="exerciseModalClicked(0); startTime('exercise', 0)">Exercise Modal</button>
                 </section>
 
                 <section id="sectionTwo" data-offset="40">
@@ -252,6 +253,7 @@
                                         <p>Number of sections: <span id="number_of_sections"></span></p>
                                         <p>Number of images: <span id="number_of_images"></span></p>
                                         <p>Number of videos: <span id="number_of_videos"></span></p>
+                                        <p>Number of exercise modals: <span id="number_of_exercise_modals"></span></p>
                                         <p>Number of times going back up: <span id="number_of_going_back_up"></span></p>
                                         <p>Time on load: <span id="time_visited_site"></span></p>
                                         <p>Time reached bottom: <span id="time_reached_bottom"></span></p>
@@ -345,6 +347,34 @@
 </div>
 </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="exerciseModal1" role="dialog">
+<div class="modal-dialog modal-lg">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">Exercise modal</h4>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <h3 style="text-align:center">Question 1</h3>
+        <h4 style="padding-left: 20px; padding-top: 35px; ">How many legs does a dog have?</h4>
+        <div style="padding-left: 25px; ">
+           
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('exercise', 0)">Close</button>
+    </div>
+  </div>
+
+</div>
+</div>
 
     <div id="fake-footer"></div>
 
