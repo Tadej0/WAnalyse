@@ -58,16 +58,16 @@
                     </div>
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked" id="sections">
-                            <li><a href="#sectionOne" data-offset="200">Section One</a></li>
-                            <li><a href="#sectionTwo" data-offset="40">Section Two</a></li>
-                            <li><a href="#sectionThree">Section Three</a></li>
-                            <li><a href="#sectionFour">Section Four</a></li>
-                            <li><a href="#sectionFive">Section Five</a></li>
-                            <li><a href="#sectionSix">Section Six</a></li>
-                            <li><a href="#sectionSeven">Section Seven</a></li>
-                            <li><a href="#sectionEight">Section Eight</a></li>
-                            <li><a href="#sectionNine">Section Nine</a></li>
-                            <li><a href="#sectionTen">Section Ten</a></li>
+                            <li><a href="#sectionOne" data-offset="200" onclick="sectionClicked(0)">Section One</a></li>
+                            <li><a href="#sectionTwo" data-offset="40" onclick="sectionClicked(1)">Section Two</a></li>
+                            <li><a href="#sectionThree" onclick="sectionClicked(2)">Section Three</a></li>
+                            <li><a href="#sectionFour" onclick="sectionClicked(3)">Section Four</a></li>
+                            <li><a href="#sectionFive" onclick="sectionClicked(4)">Section Five</a></li>
+                            <li><a href="#sectionSix" onclick="sectionClicked(5)">Section Six</a></li>
+                            <li><a href="#sectionSeven" onclick="sectionClicked(6)">Section Seven</a></li>
+                            <li><a href="#sectionEight" onclick="sectionClicked(7)">Section Eight</a></li>
+                            <li><a href="#sectionNine" onclick="sectionClicked(8)">Section Nine</a></li>
+                            <li><a href="#sectionTen" onclick="sectionClicked(9)">Section Ten</a></li>
                             <hr>
                             <li><a href="#toTop">Back To Top <span class="glyphicon glyphicon-menu-up" style="padding-left:20px;vertical-align:middle"></span></a></li>
                             <hr>
@@ -105,6 +105,7 @@
 
                     <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
                         lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+                        <button type="button" class="btn btn-info btn-lg" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#videoModal1" id="video_Modal" onclick="videoModalClicked(0); startTime('video', 0)">Video Modal</button>
                 </section>
 
                 <section id="sectionThree">
@@ -119,7 +120,8 @@
 
                     <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia
                         vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Modal Open</button>
+                    <button type="button" class="btn btn-info btn-lg" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#imgModal1" id="img_Modal" onclick="imgModalClicked(0); startTime('image', 0)">Image Modal</button>
+                    <button type="button" class="btn btn-info btn-lg" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#imgModal2" id="img_Modal" onclick="imgModalClicked(1); startTime('image', 1)">Image Modal</button>
                 </section>
 
                 <section id="sectionFour">
@@ -248,6 +250,8 @@
                                     <div class="time-message">
                                         <p>Total time on site: <span id="timeInSeconds">0</span> <span>sec</span></p>
                                         <p>Number of sections: <span id="number_of_sections"></span></p>
+                                        <p>Number of images: <span id="number_of_images"></span></p>
+                                        <p>Number of videos: <span id="number_of_videos"></span></p>
                                         <p>Time on load: <span id="time_visited_site"></span></p>
                                         <p>Time reached bottom: <span id="time_reached_bottom"></span></p>
                                         <p id="demo1"></p>
@@ -274,23 +278,70 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
-                </div>
-                <div class="modal-body">
-                    <p>This is a large modal.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
+  <div class="modal fade" id="imgModal1" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal 1</h4>
         </div>
+        <div class="modal-body">
+          <img src="img/image1.jpg" class="img-responsive">
+          <p><strong>Image 1:</strong> Description here...</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('image', 0)">Close</button>
+        </div>
+      </div>
+
     </div>
-    <!-- End Modal -->
+  </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="imgModal2" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal 2</h4>
+      </div>
+      <div class="modal-body">
+        <img src="img/image2.jpg" class="img-responsive">
+        <p><strong>Image 2:</strong> Description here...</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('image', 1)">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="videoModal1" role="dialog">
+<div class="modal-dialog">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">Modal 2</h4>
+    </div>
+    <div class="modal-body">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/wesUO81YX0U" frameborder="0" allowfullscreen></iframe>
+      <p><strong>Video 1:</strong> Description here...</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('video', 0)">Close</button>
+    </div>
+  </div>
+
+</div>
+</div>
 
 
     <div id="fake-footer"></div>

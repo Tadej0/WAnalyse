@@ -11,17 +11,66 @@ var miliseconds;
 var numberOfSections;
 // Information about individual sections
 var sectionArray;
+//number of images
+var numberOfImages;
+//Information about individual picture modals
+var imageArray;
+//number of videos
+var numberOfVideos;
+//Information about individual picture modals
+var videoArray;
 
 var time_on_load, time_on_bottom_site, time_on_leaving;
 
 var body, html;
 var height;
 
+// temporaray time variable set at the beggining of modal opening
+var tmp_Time_begin;
+
+
+function sectionClicked(clicked) {
+    sectionArray[clicked].clickedDirectliHere += 1;
+}
+
+function imgModalClicked(clicked) {
+    imageArray[clicked].numberOfTimesClicked += 1;
+}
+function videoModalClicked(clicked) {
+    videoArray[clicked].numberOfTimesClicked += 1;
+}
+
+function startTime(type, number) {
+    time = new Date();
+    tmp_Time_begin = {
+        "hours": time.getHours(),
+        "minutes": time.getMinutes(),
+        "seconds": time.getSeconds(),
+        "miliseconds": time.getMilliseconds()
+    };
+}
+
+function stopTime(type, number) {
+    time = new Date();
+    var time_diff = (time.getHours() * 3600 + time.getMinutes() * 60 + time.getSeconds() + time.getMilliseconds() / 1000) - (tmp_Time_begin.hours * 3600 + tmp_Time_begin.minutes * 60 + tmp_Time_begin.seconds + tmp_Time_begin.miliseconds / 1000);
+    switch (type) {
+        case 'image':
+            imageArray[number].timeSpentHere += time_diff;
+            break;
+        case 'video':
+            videoArray[number].timeSpentHere += time_diff;
+            break;
+        default:
+            console.log("ITS A NOTHING");
+
+    }
+}
 
 function show_info() {
-
     //Show information to the modal
     document.getElementById("number_of_sections").innerHTML = numberOfSections;
+    document.getElementById("number_of_images").innerHTML = numberOfImages;
+    document.getElementById("number_of_videos").innerHTML = numberOfVideos;
     document.getElementById("time_visited_site").innerHTML = time_on_load.minutes + "minute " + time_on_load.seconds + "seconds " + time_on_load.miliseconds + "miliseconds";
     document.getElementById("time_reached_bottom").innerHTML = time_on_bottom_site.minutes + "minute " + time_on_bottom_site.seconds + "seconds " + time_on_bottom_site.miliseconds + "miliseconds";
 
@@ -45,6 +94,49 @@ window.addEventListener("load", function() {
     };
 });
 
+
+// How many modals with IMAGES are there???
+window.addEventListener('DOMContentLoaded', function(e) {
+    var count = document.querySelectorAll("#img_Modal").length;
+    numberOfImages = count;
+    console.log("Number of IMAGES:", numberOfImages);
+    imageArray = new Array(numberOfImages);
+
+    /*
+      Varibles that are to be gathered:
+      numberOfTimesClicked -> how many times was the picture looked at?
+      timeSpentHere        -> how long was the picture looked at?
+    */
+    for (i = 0; i < numberOfImages; i++) {
+        imageArray[i] = {
+            numberOfTimesClicked: 0,
+            timeSpentHere: 0
+        }
+    }
+
+});
+
+// How many modals with VIDEOS are there???
+window.addEventListener('DOMContentLoaded', function(e) {
+    var count = document.querySelectorAll("#video_Modal").length;
+    numberOfVideos = count;
+    videoArray = new Array(numberOfVideos);
+
+    /*
+      Varibles that are to be gathered:
+      numberOfTimesClicked -> how many times was the picture looked at?
+      timeSpentHere        -> how long was the picture looked at?
+    */
+    for (i = 0; i < numberOfVideos; i++) {
+        videoArray[i] = {
+            numberOfTimesClicked: 0,
+            timeSpentHere: 0
+        }
+    }
+
+});
+
+
 // How many sections are there???
 window.addEventListener('DOMContentLoaded', function(e) {
     var count = document.querySelectorAll("#sections li").length;
@@ -63,7 +155,7 @@ window.addEventListener('DOMContentLoaded', function(e) {
     	clickedDirectliHere ->	number of times this section has been clicked directly in the menu, NO scrolling
     */
 
-    for (i = 0; i <= numberOfSections; i++) {
+    for (i = 0; i < numberOfSections; i++) {
         console.log(i);
         sectionArray[i] = {
             timeSpentHere: 0,
@@ -124,7 +216,7 @@ function calculate_time_difference() {
 // MAIN Section
 
 function wanalyse_main() {
-  console.log("ACTIVATED!!!");
+    console.log("ACTIVATED!!!");
     $('li').each(function(i) {
         if ($(this).is('.active')) {
             tmp = i;
