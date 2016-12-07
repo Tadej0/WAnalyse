@@ -1,0 +1,39 @@
+var sections = {
+    "section": {
+        "sectionOne": {
+            "questions": {
+                "q1": "How much is 5+5?",
+                "q2": "What is the radius of Earth?",
+                "q3": "A machine turns coffe into?"
+            },
+            "a1": [
+                "1.", "2.", "10.", "0."
+            ],
+            "a2": [
+                "100km", "6400km", "It's flat", "500m"
+            ],
+            "a3": [
+                "Banana", "Giraffe", "Time", "Code"
+            ]
+
+        },
+      	"sectionTwo": {
+            "questions": {
+                "q1": "File type for image?",
+                "q2": "What is the radius of Earth?",
+                "q3": "Why did the programmer quit his job? Because he did not get...?"
+            },
+            "a1": [
+                "jpg", "php", "gif", "html"
+            ],
+            "a2": [
+                "100km", "6400km", "It's flat", "500m"
+            ],
+            "a3": [
+                "free time", "Arrays", "his function", "Code"
+            ]
+
+        }
+    }
+
+};

@@ -60,6 +60,7 @@ function startTime(type, number) {
     };
 }
 
+
 function stopTime(type, number) {
     time = new Date();
     var time_diff = (time.getHours() * 3600 + time.getMinutes() * 60 + time.getSeconds() + time.getMilliseconds() / 1000) - (tmp_Time_begin.hours * 3600 + tmp_Time_begin.minutes * 60 + tmp_Time_begin.seconds + tmp_Time_begin.miliseconds / 1000);
@@ -213,9 +214,20 @@ window.addEventListener('DOMContentLoaded', function(e) {
 });
 
 
+function exercise(section, question){
+
+
+
+
+  console.log(mydata.section["sectionTwo"].questions['q1'].question);
+}
+
+
+
 // Every n MILISECONDS I check where you are ;
 // But when you reach bottom for first time I stop.
 window.setInterval(function() {
+  exercise(2, "question", 2);
     console.log("<--  500 milisecond interval  -->");
     body = document.body;
     html = document.documentElement;
