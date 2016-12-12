@@ -102,12 +102,11 @@ function show_info() {
     document.getElementById("demo3").innerHTML = text;
 
     for (i = 0, len = numberOfSections, text = ""; i < len; i++) {
-        text += "<hr style='padding-top:20px; '><h1 style='text-align:center;'>Section " + (i + 1) + ": </h1>" + "<br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times passed:" + sectionArray[i].sectionPassed + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times viewed:" + sectionArray[i].sectionVisited + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Total time viewed:" + sectionArray[i].timeSpentHere + "</p><br><p style='line-height:8px; margin:0px 0px 70px 0px ;'>Clicked directly: " + sectionArray[i].clickedDirectliHere + "</p>";
+        text += "<hr style='padding-top:20px; '><h1 style='text-align:center;'>Section " + (i + 1) + ": </h1>" + "<br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times passed:" + sectionArray[i].sectionPassed + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times viewed:" + sectionArray[i].sectionVisited + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Total time viewed:" + sectionArray[i].timeSpentHere +"</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Time passing by:" + sectionArray[i].timeSpentPassign + "</p><br><p style='line-height:8px; margin:0px 0px 70px 0px ;'>Clicked directly: " + sectionArray[i].clickedDirectliHere + "</p>";
     }
     document.getElementById("demo1").innerHTML = text;
 
 }
-// +": </h1>" + "<br><p>Times passed: </p>" + sectionArray[i].sectionPassed +"</p><br><p>Times viewed: </p>"+sectionArray[i].sectionPassed+"br<p>Total time viewed: </p>"+ sectionArray[i].timeSpentHere+"br<p>clicked directly: </p>"+sectionArray[i].clickedDirectliHere;
 
 
 
@@ -214,20 +213,22 @@ window.addEventListener('DOMContentLoaded', function(e) {
 });
 
 
+
+// TU SEM OSTAL
+
 function exercise(section, question){
 
 
+  document.getElementById("question1").innerHTML = mydata.section[section].questions[question].question;
 
 
-  console.log(mydata.section["sectionTwo"].questions['q1'].question);
+
 }
-
 
 
 // Every n MILISECONDS I check where you are ;
 // But when you reach bottom for first time I stop.
 window.setInterval(function() {
-  exercise(2, "question", 2);
     console.log("<--  500 milisecond interval  -->");
     body = document.body;
     html = document.documentElement;
