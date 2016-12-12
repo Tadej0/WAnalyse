@@ -218,10 +218,15 @@ window.addEventListener('DOMContentLoaded', function(e) {
 
 function exercise(section, question){
 
-
-  document.getElementById("question1").innerHTML = mydata.section[section].questions[question].question;
-
-
+  document.getElementById(question).innerHTML = mydata.section[section].questions[question].question;
+  var   possible_anwsers = "<h3> "+ mydata.section[section].questions[question].question + "</h3>";
+  //number of given posibilities:
+  var numberOfPosibleAnwsers = mydata.section[section].questions[question].answers.length;
+  for (i=0; i < numberOfPosibleAnwsers; i++){
+    possible_anwsers += "<div class='radio'><label><input type='radio' name='option" + i + "'>" + mydata.section[section].questions[question].answers[i] + "</label></div>";
+  }
+    document.getElementById(question).innerHTML = possible_anwsers;
+  console.log(possible_anwsers);
 
 }
 
