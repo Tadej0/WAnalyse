@@ -60,7 +60,7 @@ var mydata = {
                         "free time", "Arrays", "his function", "Code"
                     ],
                     "answered": false,
-                    "correct": 3,
+                    "correct": 1,
                     "points": 0
                 }
             }

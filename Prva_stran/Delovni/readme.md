@@ -2,4 +2,4 @@
 
 Current site tasks:
 - [ ] Add hours!
-- [ ] Still missing quiz
+- [ ] IN the quiz section: add multiple choice anwsers

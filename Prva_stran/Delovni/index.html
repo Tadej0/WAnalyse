@@ -236,8 +236,8 @@
                     <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia
                         vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
 
-                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
-
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper</p>
+<br>
                     <button type="button" class="btn btn-info btn-lg" onclick="wanalyse_main(); show_info()" data-toggle="modal" data-target="#stat">RESULTS</button>
 
                     <!-- Modal -->
@@ -365,31 +365,32 @@
 
                     <div id="q1">
                         <script>
-                            exercise("sectionOne", "q1");
+                            exercise("sectionTwo", "q1");
                         </script>
                     </div>
 
                     <div id="q2">
                         <script>
-                            exercise("sectionOne", "q2");
+                            exercise("sectionTwo", "q2");
                         </script>
                     </div>
 
                     <div id="q3">
                         <script>
-                            exercise("sectionOne", "q3");
+                            exercise("sectionTwo", "q3");
                         </script>
                     </div>
-
-
                     <div class="row" style="text-align:center;">
-                        <button type="button" class="btn btn-success" onclick="checkAnswers('sectionOne')">Confirm</button>
+                        <button type="button" class="btn btn-success" id="sectionTwoButton" onclick="checkAnswers('sectionTwo'); results('sectionTwo');">Confirm</button>
                     </div>
 
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('exercise', 0)">Close</button>
+                  <div style="text-align: left; float:left; ">
+                        Number of points: <span id="resultssectionTwo"></span>/3
+                  </div>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('exercise', 0); ">Close</button>
                 </div>
 
             </div>
@@ -397,10 +398,14 @@
     </div>
 
 
-
-
-
     <div id="fake-footer"></div>
+
+    <script type="text/javascript">
+    window.onbeforeunload = function() {
+        return "Leaving the page prevents you from getting back on it";
+    }
+</script>
+
 
 </body>
 
