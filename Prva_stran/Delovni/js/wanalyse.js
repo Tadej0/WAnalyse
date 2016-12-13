@@ -46,6 +46,7 @@ function imgModalClicked(clicked) {
 function videoModalClicked(clicked) {
     videoArray[clicked].numberOfTimesClicked += 1;
 }
+
 function exerciseModalClicked(clicked) {
     exerciseArray[clicked].numberOfTimesClicked += 1;
 }
@@ -102,7 +103,7 @@ function show_info() {
     document.getElementById("demo3").innerHTML = text;
 
     for (i = 0, len = numberOfSections, text = ""; i < len; i++) {
-        text += "<hr style='padding-top:20px; '><h1 style='text-align:center;'>Section " + (i + 1) + ": </h1>" + "<br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times passed:" + sectionArray[i].sectionPassed + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times viewed:" + sectionArray[i].sectionVisited + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Total time viewed:" + sectionArray[i].timeSpentHere +"</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Time passing by:" + sectionArray[i].timeSpentPassign + "</p><br><p style='line-height:8px; margin:0px 0px 70px 0px ;'>Clicked directly: " + sectionArray[i].clickedDirectliHere + "</p>";
+        text += "<hr style='padding-top:20px; '><h1 style='text-align:center;'>Section " + (i + 1) + ": </h1>" + "<br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times passed:" + sectionArray[i].sectionPassed + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times viewed:" + sectionArray[i].sectionVisited + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Total time viewed:" + sectionArray[i].timeSpentHere + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Time passing by:" + sectionArray[i].timeSpentPassign + "</p><br><p style='line-height:8px; margin:0px 0px 70px 0px ;'>Clicked directly: " + sectionArray[i].clickedDirectliHere + "</p>";
     }
     document.getElementById("demo1").innerHTML = text;
 
@@ -216,19 +217,55 @@ window.addEventListener('DOMContentLoaded', function(e) {
 
 // TU SEM OSTAL
 
-function exercise(section, question){
+function exercise(section, question) {
 
-  document.getElementById(question).innerHTML = mydata.section[section].questions[question].question;
-  var   possible_anwsers = "<h3> "+ mydata.section[section].questions[question].question + "</h3>";
-  //number of given posibilities:
-  var numberOfPosibleAnwsers = mydata.section[section].questions[question].answers.length;
-  for (i=0; i < numberOfPosibleAnwsers; i++){
-    possible_anwsers += "<div class='radio'><label><input type='radio' name='option" + i + "'>" + mydata.section[section].questions[question].answers[i] + "</label></div>";
-  }
+    document.getElementById(question).innerHTML = mydata.section[section].questions[question].question;
+    var possible_anwsers = "<h3> " + mydata.section[section].questions[question].question + "</h3>";
+    //number of given posibilities:
+    var numberOfPosibleAnwsers = mydata.section[section].questions[question].answers.length;
+    for (i = 0; i < numberOfPosibleAnwsers; i++) {
+        possible_anwsers += "<div class='radio'><label><input type='radio' name='" + section+question + "' value=" + i + ">" + mydata.section[section].questions[question].answers[i] + "</label></div>";
+    }
     document.getElementById(question).innerHTML = possible_anwsers;
-  console.log(possible_anwsers);
 
-}
+};
+
+
+function checkAnswers(section) {
+    //How many anwsers are there? Well, let me tell you:
+    var num_of_questions = mydata.section[section].questions.number_of_questions;
+
+    //Check all the questions:
+    for (i = 0; i < num_of_questions; i++) {
+      var thisOne = "";
+      thisOne = section + "q" + (i+1);
+
+    }
+
+    if (!$("input[name='sectionOneq1']:checked").val()) {
+        alert('Nothing is checked!');
+    } else {
+        var odg = document.querySelector('input[name="sectionOneq1"]:checked').value;
+        if (mydata.section[section].questions['q1'].answered == false) {
+
+            if (document.querySelector('input[name="sectionOneq1"]:checked').value != null) {
+                console.log("Odgovor: ", odg);
+                if (odg == mydata.section[section].questions['q1'].correct) {
+                    console.log("CORRECT ANWSER!");
+                    mydata.section[section].questions['q1'].points = 1;
+                } else if (odg != mydata.section[section].questions['q1'].correct) {
+                    console.log("WRONG ANWSER!");
+                    mydata.section[section].questions['q1'].points = 0;
+
+                }
+                mydata.section[section].questions['q1'].answered = true;
+            }
+        }
+
+    }
+
+
+};
 
 
 // Every n MILISECONDS I check where you are ;

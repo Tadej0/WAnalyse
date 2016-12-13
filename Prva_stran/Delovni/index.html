@@ -111,7 +111,7 @@
 
                     <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
                         lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-                        <button type="button" class="btn btn-info btn-lg" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#videoModal1" id="video_Modal" onclick="videoModalClicked(0); startTime('video', 0)">Video Modal</button>
+                    <button type="button" class="btn btn-info btn-lg" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#videoModal1" id="video_Modal" onclick="videoModalClicked(0); startTime('video', 0)">Video Modal</button>
                 </section>
 
                 <section id="sectionThree">
@@ -237,7 +237,6 @@
                         vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
 
                     <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper
-                        lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
 
                     <button type="button" class="btn btn-info btn-lg" onclick="wanalyse_main(); show_info()" data-toggle="modal" data-target="#stat">RESULTS</button>
 
@@ -287,96 +286,115 @@
     </div>
 
     <!-- Modal -->
-  <div class="modal fade" id="imgModal1" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal fade" id="imgModal1" role="dialog">
+        <div class="modal-dialog">
 
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal 1</h4>
-        </div>
-        <div class="modal-body">
-          <img src="img/image1.jpg" class="img-responsive">
-          <p><strong>Image 1:</strong> Description here...</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('image', 0)">Close</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Modal -->
-<div class="modal fade" id="imgModal2" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal 2</h4>
-      </div>
-      <div class="modal-body">
-        <img src="img/image2.jpg" class="img-responsive">
-        <p><strong>Image 2:</strong> Description here...</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('image', 1)">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="videoModal1" role="dialog">
-<div class="modal-dialog">
-
-  <!-- Modal content-->
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title">Modal 2</h4>
-    </div>
-    <div class="modal-body">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/wesUO81YX0U" frameborder="0" allowfullscreen></iframe>
-      <p><strong>Video 1:</strong> Description here...</p>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('video', 0)">Close</button>
-    </div>
-  </div>
-
-</div>
-</div>
-
-
-
-<div class="modal fade" id="exerciseModal1" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-
-          <div id="q3">
-            <script>
-              exercise("sectionOne", "q3");
-            </script>
-          </div>
-
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal 1</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="img/image1.jpg" class="img-responsive">
+                    <p><strong>Image 1:</strong> Description here...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('image', 0)">Close</button>
+                </div>
+            </div>
 
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('exercise', 0)">Close</button>
-        </div>
-      </div>
     </div>
-  </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="imgModal2" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal 2</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="img/image2.jpg" class="img-responsive">
+                    <p><strong>Image 2:</strong> Description here...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('image', 1)">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="videoModal1" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal 2</h4>
+                </div>
+                <div class="modal-body">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/wesUO81YX0U" frameborder="0" allowfullscreen></iframe>
+                    <p><strong>Video 1:</strong> Description here...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('video', 0)">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="exerciseModal1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <div id="q1">
+                        <script>
+                            exercise("sectionOne", "q1");
+                        </script>
+                    </div>
+
+                    <div id="q2">
+                        <script>
+                            exercise("sectionOne", "q2");
+                        </script>
+                    </div>
+
+                    <div id="q3">
+                        <script>
+                            exercise("sectionOne", "q3");
+                        </script>
+                    </div>
+
+
+                    <div class="row" style="text-align:center;">
+                        <button type="button" class="btn btn-success" onclick="checkAnswers('sectionOne')">Confirm</button>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('exercise', 0)">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
 
