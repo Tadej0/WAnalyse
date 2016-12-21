@@ -97,7 +97,7 @@
 
                     <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
                         vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
-                    <button type="button" class="btn btn-info btn-lg" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#exerciseModal1" id="exercise_Modal" onclick="exerciseModalClicked(0); startTime('exercise', 0)">Exercise Modal</button>
+                    <button type="button" class="btn btn-info btn-lg" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#exerciseModal1" id="exercise_Modal" onclick="exerciseModalClicked(0); startTime('exercise', 0)">Exercise Modal 1</button>
                 </section>
 
                 <section id="sectionTwo" data-offset="40">
@@ -198,6 +198,7 @@
                     <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue
                         vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
 
+                    <button type="button" class="btn btn-info btn-lg" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#exerciseModal2" id="exercise_Modal" onclick="exerciseModalClicked(1); startTime('exercise', 1)">Exercise Modal 2</button>
 
                 </section>
 
@@ -237,7 +238,7 @@
                         vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
 
                     <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper</p>
-<br>
+                    <br>
                     <button type="button" class="btn btn-info btn-lg" onclick="wanalyse_main(); show_info()" data-toggle="modal" data-target="#stat">RESULTS</button>
 
                     <!-- Modal -->
@@ -264,6 +265,7 @@
                                         <p id="demo1"></p>
                                         <p id="demo2"></p>
                                         <p id="demo3"></p>
+                                        <p id="demo4"></p>
                                     </div>
 
                                 </div>
@@ -363,19 +365,19 @@
                 <div class="modal-body">
 
 
-                    <div id="q1">
+                    <div id="sectionTwoq1">
                         <script>
                             exercise("sectionTwo", "q1");
                         </script>
                     </div>
 
-                    <div id="q2">
+                    <div id="sectionTwoq2">
                         <script>
                             exercise("sectionTwo", "q2");
                         </script>
                     </div>
 
-                    <div id="q3">
+                    <div id="sectionTwoq3">
                         <script>
                             exercise("sectionTwo", "q3");
                         </script>
@@ -387,9 +389,9 @@
                 </div>
 
                 <div class="modal-footer">
-                  <div style="text-align: left; float:left; ">
+                    <div style="text-align: left; float:left; ">
                         Number of points: <span id="resultssectionTwo"></span>/3
-                  </div>
+                    </div>
                     <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('exercise', 0); ">Close</button>
                 </div>
 
@@ -398,13 +400,67 @@
     </div>
 
 
+
+
+    <div class="modal fade" id="exerciseModal2" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <div id="sectionOneq1">
+                        <script>
+                            exercise("sectionOne", "q1");
+                        </script>
+                    </div>
+
+                    <div id="sectionOneq2">
+                        <script>
+                            exercise("sectionOne", "q2");
+                        </script>
+                    </div>
+
+                    <div id="sectionOneq3">
+                        <script>
+                            exercise("sectionOne", "q3");
+                        </script>
+                    </div>
+                    <div class="row" style="text-align:center;">
+                        <button type="button" class="btn btn-success" id="sectionOneButton" onclick="checkAnswers('sectionOne'); results('sectionOne');">Confirm</button>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <div style="text-align: left; float:left; ">
+                        Number of points: <span id="resultssectionOne"></span>/3
+                    </div>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="stopTime('exercise', 1); ">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
     <div id="fake-footer"></div>
 
     <script type="text/javascript">
-    window.onbeforeunload = function() {
-        return "Leaving the page prevents you from getting back on it";
-    }
-</script>
+        window.onbeforeunload = function() {
+            return "Leaving the page prevents you from getting back on it";
+        }
+    </script>
 
 
 </body>

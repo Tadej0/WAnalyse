@@ -91,21 +91,29 @@ function show_info() {
     document.getElementById("time_visited_site").innerHTML = time_on_load.minutes + "minute " + time_on_load.seconds + "seconds " + time_on_load.miliseconds + "miliseconds";
     document.getElementById("time_reached_bottom").innerHTML = time_on_bottom_site.minutes + "minute " + time_on_bottom_site.seconds + "seconds " + time_on_bottom_site.miliseconds + "miliseconds";
 
-
+    //Images:
     for (i = 0, len = numberOfImages, text = ""; i < len; i++) {
         text += "<hr style='padding-top:20px; '><h1 style='text-align:center;'>Image " + (i + 1) + ": </h1>" + "<br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times viewed:" + imageArray[i].numberOfTimesClicked + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Time viewed:" + imageArray[i].timeSpentHere + "</p><br>";
     }
     document.getElementById("demo2").innerHTML = text;
 
+    //Videos:
     for (i = 0, len = numberOfVideos, text = ""; i < len; i++) {
         text += "<hr style='padding-top:20px; '><h1 style='text-align:center;'>Video " + (i + 1) + ": </h1>" + "<br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times viewed:" + videoArray[i].numberOfTimesClicked + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Time viewed:" + videoArray[i].timeSpentHere + "</p><br>";
     }
     document.getElementById("demo3").innerHTML = text;
 
+    //Sections:
     for (i = 0, len = numberOfSections, text = ""; i < len; i++) {
         text += "<hr style='padding-top:20px; '><h1 style='text-align:center;'>Section " + (i + 1) + ": </h1>" + "<br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times passed:" + sectionArray[i].sectionPassed + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times viewed:" + sectionArray[i].sectionVisited + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Total time viewed:" + sectionArray[i].timeSpentHere + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Time passing by:" + sectionArray[i].timeSpentPassign + "</p><br><p style='line-height:8px; margin:0px 0px 70px 0px ;'>Clicked directly: " + sectionArray[i].clickedDirectliHere + "</p>";
     }
     document.getElementById("demo1").innerHTML = text;
+
+    //Exercises:
+    for (i = 0, len = numberOfExercises, text = ""; i < len; i++) {
+        text += "<hr style='padding-top:20px; '><h1 style='text-align:center;'>Exercises " + (i + 1) + ": </h1>" + "<br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Times clicked:" + exerciseArray[i].numberOfTimesClicked + "</p><br><p style='line-height:8px; margin:0px 0px 0px 0px ;'>Time spent here:" + exerciseArray[i].timeSpentHere + "</p><br>";
+    }
+    document.getElementById("demo4").innerHTML = text;
 
 }
 
@@ -215,14 +223,14 @@ window.addEventListener('DOMContentLoaded', function(e) {
 
 
 function exercise(section, question) {
-    document.getElementById(question).innerHTML = mydata.section[section].questions[question].question;
+    document.getElementById(section + question).innerHTML = mydata.section[section].questions[question].question;
     var possible_anwsers = "<h3> " + mydata.section[section].questions[question].question + "</h3>";
     //number of given posibilities:
     var numberOfPosibleAnwsers = mydata.section[section].questions[question].answers.length;
     for (i = 0; i < numberOfPosibleAnwsers; i++) {
         possible_anwsers += "<div class='radio'><label><input type='radio' name='" + section + question + "' value=" + i + ">" + mydata.section[section].questions[question].answers[i] + "</label></div>";
     }
-    document.getElementById(question).innerHTML = possible_anwsers;
+    document.getElementById(section + question).innerHTML = possible_anwsers;
 
 };
 
@@ -265,11 +273,10 @@ function checkAnswers(section) {
             }
         }
     }
+
     if (anwserIncrement == (num_of_questions)) {
-        document.getElementById("sectionTwoButton").style.display = "none";
+        document.getElementById(section + "Button").style.display = "none";
     }
-
-
 };
 
 function results(section) {
